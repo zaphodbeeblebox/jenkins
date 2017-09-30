@@ -1,2 +1,17 @@
 
-
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                 sh '''
+                    cd /home/jenkins/gitrepository
+                    git clone https://github.com/zaphodbeeblebox/java
+		                cd java
+		                java test.java
+              '''
+                
+            }
+        }
+    }
+}
